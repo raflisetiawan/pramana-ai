@@ -24,24 +24,24 @@
 ### Minggu 1 — Project Setup & Mock VClaim
 
 #### 1.1 Project Bootstrap
-- [ ] **1.1.1** Buat struktur direktori sesuai `SPEC.md` (bagian 3)
-- [ ] **1.1.2** Setup `docker-compose.yml` dengan service: `postgres`, `redis`, `mock-vclaim`
-- [ ] **1.1.3** Buat `.env.example` sesuai `ENV.md`
-- [ ] **1.1.4** Setup `Makefile` dengan shortcut: `make dev`, `make test`, `make migrate`
-- [ ] **1.1.5** Inisialisasi repo git, buat `.gitignore` sesuai `ENV.md` bagian 6
+- [x] **1.1.1** Buat struktur direktori sesuai `SPEC.md` (bagian 3)
+- [x] **1.1.2** Setup `docker-compose.yml` dengan service: `postgres`, `redis`, `mock-vclaim`
+- [x] **1.1.3** Buat `.env.example` sesuai `ENV.md`
+- [x] **1.1.4** Setup `Makefile` dengan shortcut: `make dev`, `make test`, `make migrate`
+- [x] **1.1.5** Inisialisasi repo git, buat `.gitignore` sesuai `ENV.md` bagian 6
 
 #### 1.2 Database Setup
-- [ ] **1.2.1** Setup FastAPI project di `services/api-gateway/`
-- [ ] **1.2.2** Konfigurasi SQLAlchemy async + Alembic
-- [ ] **1.2.3** Buat semua tabel sesuai schema di `SPEC.md` bagian 4:
-  - [ ] `hospitals`
-  - [ ] `users`
-  - [ ] `claims`
-  - [ ] `risk_scores`
-  - [ ] `nlp_coding_results`
-  - [ ] `audit_logs`
-- [ ] **1.2.4** Buat migrasi Alembic pertama (`initial_schema`)
-- [ ] **1.2.5** Buat seed data: 3 RS dummy, 5 user dummy (admin, verifikator), 10 klaim dummy
+- [x] **1.2.1** Setup FastAPI project di `services/api-gateway/`
+- [x] **1.2.2** Konfigurasi SQLAlchemy async + Alembic
+- [x] **1.2.3** Buat semua tabel sesuai schema di `SPEC.md` bagian 4:
+  - [x] `hospitals`
+  - [x] `users`
+  - [x] `claims`
+  - [x] `risk_scores`
+  - [x] `nlp_coding_results`
+  - [x] `audit_logs`
+- [x] **1.2.4** Buat migrasi Alembic pertama (`initial_schema`)
+- [x] **1.2.5** Buat seed data: 3 RS dummy, 5 user dummy (admin, verifikator), 10 klaim dummy
 
 #### 1.3 Mock VClaim — Setup & Auth
 - [ ] **1.3.1** Buat FastAPI project di `services/mock-vclaim/`
