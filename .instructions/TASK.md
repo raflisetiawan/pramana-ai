@@ -100,10 +100,10 @@
 - [x] **1.7.3** `POST /_mock/reset` — reset ke default
 
 #### 1.8 Testing Phase 1
-- [ ] **1.8.1** Unit test: signature validator (benar / salah / expired)
-- [ ] **1.8.2** Unit test: semua endpoint peserta (5 skenario)
-- [ ] **1.8.3** Integration test: alur lengkap cari peserta → cari rujukan → buat SEP → cek monitoring
-- [ ] **1.8.4** Pastikan Swagger UI (`/docs`) berjalan dan semua endpoint terdokumentasi
+- [x] **1.8.1** Unit test: signature validator (benar / salah / expired)
+- [x] **1.8.2** Unit test: semua endpoint peserta (5 skenario)
+- [x] **1.8.3** Integration test: alur lengkap cari peserta → cari rujukan → buat SEP → cek monitoring
+- [x] **1.8.4** Pastikan Swagger UI (`/docs`) berjalan dan semua endpoint terdokumentasi
 
 **✅ Deliverable Phase 1:** Mock VClaim berjalan, seluruh alur pembuatan SEP bisa disimulasikan, data tersimpan.
 
