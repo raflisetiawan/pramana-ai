@@ -95,9 +95,9 @@
 - [x] **1.6.6** `GET /Monitoring/Kunjungan/Tanggal/{tgl}/JnsPelayanan/{jnsPel}` — monitoring harian
 
 #### 1.7 Mock VClaim — Mock Control Endpoints
-- [ ] **1.7.1** `POST /_mock/config` — set error rate, delay, force error on noka tertentu
-- [ ] **1.7.2** `GET /_mock/status` — lihat konfigurasi saat ini
-- [ ] **1.7.3** `POST /_mock/reset` — reset ke default
+- [x] **1.7.1** `POST /_mock/config` — set error rate, delay, force error on noka tertentu
+- [x] **1.7.2** `GET /_mock/status` — lihat konfigurasi saat ini
+- [x] **1.7.3** `POST /_mock/reset` — reset ke default
 
 #### 1.8 Testing Phase 1
 - [ ] **1.8.1** Unit test: signature validator (benar / salah / expired)

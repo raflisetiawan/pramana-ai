@@ -11,6 +11,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.auth.signature import SignatureValidatorMiddleware
+from app.middleware.simulation import SimulationMiddleware
 from app.data_loader import load_all_data
 
 
@@ -43,8 +44,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Signature validator middleware
+# Add middlewares (order matters: executed bottom to top)
 app.add_middleware(SignatureValidatorMiddleware)
+app.add_middleware(SimulationMiddleware)
 
 
 @app.get("/health")
@@ -60,6 +62,7 @@ from app.routers.sep import router as sep_router
 from app.routers.rujukan import router as rujukan_router
 from app.routers.rencana_kontrol import router as rencana_kontrol_router
 from app.routers.monitoring import router as monitoring_router
+from app.routers.mock_control import router as mock_control_router
 
 app.include_router(peserta_router, prefix="/vclaim/v2")
 app.include_router(referensi_router, prefix="/vclaim/v2")
@@ -67,3 +70,4 @@ app.include_router(sep_router, prefix="/vclaim/v2")
 app.include_router(rujukan_router, prefix="/vclaim/v2")
 app.include_router(rencana_kontrol_router, prefix="/vclaim/v2")
 app.include_router(monitoring_router, prefix="/vclaim/v2")
+app.include_router(mock_control_router, prefix="/vclaim/v2")
