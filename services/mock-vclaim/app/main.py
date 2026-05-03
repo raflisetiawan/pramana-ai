@@ -56,6 +56,8 @@ async def health_check():
 # Include routers
 from app.routers.peserta import router as peserta_router
 from app.routers.referensi import router as referensi_router
+from app.routers.sep import router as sep_router
 
 app.include_router(peserta_router, prefix="/vclaim/v2")
 app.include_router(referensi_router, prefix="/vclaim/v2")
+app.include_router(sep_router, prefix="/vclaim/v2")

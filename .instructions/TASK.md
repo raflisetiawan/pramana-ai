@@ -76,15 +76,15 @@
 - [x] **1.4.6** `GET /referensi/procedure/{keyword}`
 
 #### 1.5 Mock VClaim — Endpoint SEP
-- [ ] **1.5.1** `POST /SEP/2.0/insert` dengan validasi:
+- [x] **1.5.1** `POST /SEP/2.0/insert` dengan validasi:
   - DPJP tidak boleh kosong
   - Tanggal SEP tidak boleh lebih dari hari ini
   - Tanggal rujukan tidak boleh lebih dari tgl SEP
   - Backdate > 1 hari harus pengajuan dulu
   - Simpan SEP ke Redis (state management)
-- [ ] **1.5.2** `GET /SEP/{noSep}` — ambil SEP by nomor
-- [ ] **1.5.3** `PUT /SEP/2.0/update` — update SEP (validasi: belum FPK)
-- [ ] **1.5.4** `DELETE /SEP/2.0/delete` — hapus SEP (validasi: belum dirujuk)
+- [x] **1.5.2** `GET /SEP/{noSep}` — ambil SEP by nomor
+- [x] **1.5.3** `PUT /SEP/2.0/update` — update SEP (validasi: belum FPK)
+- [x] **1.5.4** `DELETE /SEP/2.0/delete` — hapus SEP (validasi: belum dirujuk)
 
 #### 1.6 Mock VClaim — Endpoint Rujukan & Kontrol
 - [ ] **1.6.1** `GET /Rujukan/Peserta/{noKartu}` — cari rujukan aktif by nomor kartu
