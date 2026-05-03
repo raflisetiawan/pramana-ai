@@ -1,0 +1,178 @@
+# =============================================================
+# Pramana AI — Docker Compose (Development)
+# =============================================================
+# Jalankan: docker compose up -d
+# Atau:     make dev
+# =============================================================
+
+services:
+  # --- Infrastructure Services ---
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: pramana-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-pramana_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-pramana_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pramana_dev_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pramana_user} -d ${POSTGRES_DB:-pramana_dev}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pramana-net
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: pramana-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pramana-net
+
+  # --- Application Services ---
+
+  mock-vclaim:
+    build:
+      context: ./services/mock-vclaim
+      dockerfile: Dockerfile
+    container_name: pramana-mock-vclaim
+    restart: unless-stopped
+    environment:
+      - MOCK_VCLAIM_HOST=0.0.0.0
+      - MOCK_VCLAIM_PORT=8001
+      - VCLAIM_CONS_ID=${VCLAIM_CONS_ID:-pramana_dev_cons_id}
+      - VCLAIM_SECRET_KEY=${VCLAIM_SECRET_KEY:-pramana_dev_secret_key_32chars_min}
+      - VCLAIM_USER_KEY=${VCLAIM_USER_KEY:-pramana_dev_user_key}
+      - MOCK_VCLAIM_RESPONSE_DELAY_MS=${MOCK_VCLAIM_RESPONSE_DELAY_MS:-0}
+      - MOCK_VCLAIM_ERROR_RATE=${MOCK_VCLAIM_ERROR_RATE:-0.0}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "8001:8001"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - pramana-net
+
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: pramana-api-gateway
+    restart: unless-stopped
+    environment:
+      - API_GATEWAY_HOST=0.0.0.0
+      - API_GATEWAY_PORT=8000
+      - API_GATEWAY_WORKERS=2
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-pramana_dev}
+      - POSTGRES_USER=${POSTGRES_USER:-pramana_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pramana_dev_password}
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-pramana_user}:${POSTGRES_PASSWORD:-pramana_dev_password}@postgres:5432/${POSTGRES_DB:-pramana_dev}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-dev_jwt_secret_key_change_in_production_min_64chars_long}
+      - JWT_ALGORITHM=HS256
+      - NLP_ENGINE_INTERNAL_URL=http://nlp-engine:8002
+      - ML_ENGINE_INTERNAL_URL=http://ml-engine:8003
+      - AUTH_SERVICE_INTERNAL_URL=http://auth-service:8004
+      - MOCK_VCLAIM_INTERNAL_URL=http://mock-vclaim:8001
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - pramana-net
+
+  nlp-engine:
+    build:
+      context: ./services/nlp-engine
+      dockerfile: Dockerfile
+    container_name: pramana-nlp-engine
+    restart: unless-stopped
+    environment:
+      - NLP_ENGINE_HOST=0.0.0.0
+      - NLP_ENGINE_PORT=8002
+      - NLP_ENGINE_WORKERS=1
+      - NLP_CONFIDENCE_THRESHOLD=0.75
+      - NLP_MAX_TOKEN_LENGTH=512
+      - NLP_TOP_K_CANDIDATES=5
+    ports:
+      - "8002:8002"
+    networks:
+      - pramana-net
+
+  ml-engine:
+    build:
+      context: ./services/ml-engine
+      dockerfile: Dockerfile
+    container_name: pramana-ml-engine
+    restart: unless-stopped
+    environment:
+      - ML_ENGINE_HOST=0.0.0.0
+      - ML_ENGINE_PORT=8003
+      - ML_ENGINE_WORKERS=2
+      - ML_RISK_THRESHOLD_LOW=40
+      - ML_RISK_THRESHOLD_HIGH=70
+    ports:
+      - "8003:8003"
+    networks:
+      - pramana-net
+
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile
+    container_name: pramana-auth-service
+    restart: unless-stopped
+    environment:
+      - AUTH_SERVICE_HOST=0.0.0.0
+      - AUTH_SERVICE_PORT=8004
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-pramana_dev}
+      - POSTGRES_USER=${POSTGRES_USER:-pramana_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pramana_dev_password}
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-pramana_user}:${POSTGRES_PASSWORD:-pramana_dev_password}@postgres:5432/${POSTGRES_DB:-pramana_dev}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-dev_jwt_secret_key_change_in_production_min_64chars_long}
+      - JWT_ALGORITHM=HS256
+      - BCRYPT_ROUNDS=12
+    ports:
+      - "8004:8004"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - pramana-net
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  pramana-net:
+    driver: bridge

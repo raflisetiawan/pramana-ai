@@ -1,0 +1,2 @@
+# NLP model files will be stored here (gitignored)
+# Download models using: python -c "from transformers import ..."
