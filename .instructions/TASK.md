@@ -44,16 +44,16 @@
 - [x] **1.2.5** Buat seed data: 3 RS dummy, 5 user dummy (admin, verifikator), 10 klaim dummy
 
 #### 1.3 Mock VClaim — Setup & Auth
-- [ ] **1.3.1** Buat FastAPI project di `services/mock-vclaim/`
-- [ ] **1.3.2** Implementasi HMAC-SHA256 signature validator (middleware)
+- [x] **1.3.1** Buat FastAPI project di `services/mock-vclaim/`
+- [x] **1.3.2** Implementasi HMAC-SHA256 signature validator (middleware)
   - Input: `X-cons-id`, `X-timestamp`, `X-signature` header
   - Validasi: signature cocok + timestamp tidak lebih dari 5 menit lalu (anti-replay)
-- [ ] **1.3.3** Buat response envelope helper:
+- [x] **1.3.3** Buat response envelope helper:
   ```python
   def ok_response(data): return {"metaData": {"code": "200", "message": "OK"}, "response": data}
   def error_response(code, msg): return {"metaData": {"code": code, "message": msg}, "response": None}
   ```
-- [ ] **1.3.4** Load data dummy dari JSON files:
+- [x] **1.3.4** Load data dummy dari JSON files:
   - `peserta.json` (4 peserta dari `MOCK_API_SPEC.md` bagian 10)
   - `icd10.json` (minimal 15 kode dari `MOCK_API_SPEC.md` bagian 10)
   - `icd9.json` (minimal 10 kode prosedur)

@@ -1,0 +1,42 @@
+[
+  {
+    "kode": "0101R001",
+    "nama": "RSUD Dr. Soetomo",
+    "tipe": "2",
+    "tipeFaskes": "RS Tipe A",
+    "provinsi": { "kode": "35", "nama": "Jawa Timur" },
+    "kabKota": { "kode": "3578", "nama": "Kota Surabaya" }
+  },
+  {
+    "kode": "0101R002",
+    "nama": "RS Dr. Saiful Anwar",
+    "tipe": "2",
+    "tipeFaskes": "RS Tipe B",
+    "provinsi": { "kode": "35", "nama": "Jawa Timur" },
+    "kabKota": { "kode": "3573", "nama": "Kota Malang" }
+  },
+  {
+    "kode": "0101R003",
+    "nama": "RSU Haji Surabaya",
+    "tipe": "2",
+    "tipeFaskes": "RS Tipe B",
+    "provinsi": { "kode": "35", "nama": "Jawa Timur" },
+    "kabKota": { "kode": "3578", "nama": "Kota Surabaya" }
+  },
+  {
+    "kode": "150100100",
+    "nama": "Puskesmas Tegalsari",
+    "tipe": "1",
+    "tipeFaskes": "Puskesmas",
+    "provinsi": { "kode": "35", "nama": "Jawa Timur" },
+    "kabKota": { "kode": "3578", "nama": "Kota Surabaya" }
+  },
+  {
+    "kode": "150100200",
+    "nama": "Puskesmas Genteng",
+    "tipe": "1",
+    "tipeFaskes": "Puskesmas",
+    "provinsi": { "kode": "35", "nama": "Jawa Timur" },
+    "kabKota": { "kode": "3578", "nama": "Kota Surabaya" }
+  }
+]

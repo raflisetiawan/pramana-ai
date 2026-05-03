@@ -1,0 +1,32 @@
+[
+  {
+    "kodeDokter": "DR001",
+    "namaDokter": "dr. Ahmad Fauzi, Sp.JP",
+    "spesialistik": "Jantung dan Pembuluh Darah",
+    "kodePoli": "JPD"
+  },
+  {
+    "kodeDokter": "DR002",
+    "namaDokter": "dr. Sri Wahyuni, Sp.PD",
+    "spesialistik": "Penyakit Dalam",
+    "kodePoli": "INT"
+  },
+  {
+    "kodeDokter": "DR003",
+    "namaDokter": "dr. Bambang Setiawan, Sp.B",
+    "spesialistik": "Bedah Umum",
+    "kodePoli": "BDH"
+  },
+  {
+    "kodeDokter": "DR004",
+    "namaDokter": "dr. Ratna Dewi, Sp.P",
+    "spesialistik": "Pulmonologi",
+    "kodePoli": "PAR"
+  },
+  {
+    "kodeDokter": "DR005",
+    "namaDokter": "dr. Agus Prasetyo, Sp.S",
+    "spesialistik": "Saraf",
+    "kodePoli": "SAR"
+  }
+]

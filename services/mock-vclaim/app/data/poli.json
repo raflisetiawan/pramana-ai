@@ -1,0 +1,18 @@
+[
+  { "kode": "INT", "nama": "Poli Interne" },
+  { "kode": "JPD", "nama": "Poli Jantung dan Pembuluh Darah" },
+  { "kode": "SAR", "nama": "Poli Saraf" },
+  { "kode": "ORT", "nama": "Poli Ortopedi" },
+  { "kode": "MAT", "nama": "Poli Mata" },
+  { "kode": "THT", "nama": "Poli THT" },
+  { "kode": "KUL", "nama": "Poli Kulit dan Kelamin" },
+  { "kode": "PAR", "nama": "Poli Paru" },
+  { "kode": "GIN", "nama": "Poli Ginekologi" },
+  { "kode": "URO", "nama": "Poli Urologi" },
+  { "kode": "HDL", "nama": "Poli Hemodialisa" },
+  { "kode": "IRM", "nama": "Poli Rehabilitasi Medik" },
+  { "kode": "GIG", "nama": "Poli Gigi dan Mulut" },
+  { "kode": "ANK", "nama": "Poli Anak" },
+  { "kode": "BDH", "nama": "Poli Bedah" },
+  { "kode": "IGD", "nama": "Instalasi Gawat Darurat" }
+]
