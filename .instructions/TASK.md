@@ -65,15 +65,15 @@
 ### Minggu 2 — Mock VClaim Endpoint & Integrasi Awal
 
 #### 1.4 Mock VClaim — Endpoint Peserta & Referensi
-- [ ] **1.4.1** `GET /Peserta/nokartu/{noKartu}/tglSEP/{tgl}` dengan semua skenario:
+- [x] **1.4.1** `GET /Peserta/nokartu/{noKartu}/tglSEP/{tgl}` dengan semua skenario:
   - Peserta aktif
   - Peserta non-aktif
   - Tidak ditemukan
-- [ ] **1.4.2** `GET /referensi/diagnosa/{keyword}` — search by keyword
-- [ ] **1.4.3** `GET /referensi/dokter/pelayanan/{kdPoli}/tglPelayanan/{tgl}/Spesialis/{kdSpes}`
-- [ ] **1.4.4** `GET /referensi/poli/{keyword}`
-- [ ] **1.4.5** `GET /referensi/faskes/{tipe}/{keyword}`
-- [ ] **1.4.6** `GET /referensi/procedure/{keyword}`
+- [x] **1.4.2** `GET /referensi/diagnosa/{keyword}` — search by keyword
+- [x] **1.4.3** `GET /referensi/dokter/pelayanan/{kdPoli}/tglPelayanan/{tgl}/Spesialis/{kdSpes}`
+- [x] **1.4.4** `GET /referensi/poli/{keyword}`
+- [x] **1.4.5** `GET /referensi/faskes/{tipe}/{keyword}`
+- [x] **1.4.6** `GET /referensi/procedure/{keyword}`
 
 #### 1.5 Mock VClaim — Endpoint SEP
 - [ ] **1.5.1** `POST /SEP/2.0/insert` dengan validasi:

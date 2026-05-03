@@ -51,3 +51,11 @@ app.add_middleware(SignatureValidatorMiddleware)
 async def health_check():
     """Health check endpoint (no auth required)."""
     return {"status": "healthy", "service": "mock-vclaim", "version": "0.1.0"}
+
+
+# Include routers
+from app.routers.peserta import router as peserta_router
+from app.routers.referensi import router as referensi_router
+
+app.include_router(peserta_router, prefix="/vclaim/v2")
+app.include_router(referensi_router, prefix="/vclaim/v2")
