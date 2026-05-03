@@ -87,12 +87,12 @@
 - [x] **1.5.4** `DELETE /SEP/2.0/delete` — hapus SEP (validasi: belum dirujuk)
 
 #### 1.6 Mock VClaim — Endpoint Rujukan & Kontrol
-- [ ] **1.6.1** `GET /Rujukan/Peserta/{noKartu}` — cari rujukan aktif by nomor kartu
-- [ ] **1.6.2** `GET /Rujukan/{noRujukan}` — get rujukan by nomor
-- [ ] **1.6.3** `POST /Rujukan/2.0/insert` — buat rujukan antar RS
-- [ ] **1.6.4** `POST /RencanaKontrol/insert` — buat surat kontrol
-- [ ] **1.6.5** `POST /RencanaKontrol/InsertSPRI` — buat SPRI
-- [ ] **1.6.6** `GET /Monitoring/Kunjungan/Tanggal/{tgl}/JnsPelayanan/{jnsPel}` — monitoring harian
+- [x] **1.6.1** `GET /Rujukan/Peserta/{noKartu}` — cari rujukan aktif by nomor kartu
+- [x] **1.6.2** `GET /Rujukan/{noRujukan}` — get rujukan by nomor
+- [x] **1.6.3** `POST /Rujukan/2.0/insert` — buat rujukan antar RS
+- [x] **1.6.4** `POST /RencanaKontrol/insert` — buat surat kontrol
+- [x] **1.6.5** `POST /RencanaKontrol/InsertSPRI` — buat SPRI
+- [x] **1.6.6** `GET /Monitoring/Kunjungan/Tanggal/{tgl}/JnsPelayanan/{jnsPel}` — monitoring harian
 
 #### 1.7 Mock VClaim — Mock Control Endpoints
 - [ ] **1.7.1** `POST /_mock/config` — set error rate, delay, force error on noka tertentu
