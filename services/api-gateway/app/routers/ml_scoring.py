@@ -23,7 +23,7 @@ from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
 
-router = APIRouter(prefix="/api/v1/claims", tags=["Claims + ML Scoring"])
+router = APIRouter(prefix="/api/v1/ml", tags=["ML Scoring"])
 
 # ML Engine base URL (configurable via environment)
 ML_ENGINE_URL = os.getenv("ML_ENGINE_URL", "http://ml-engine:8002")

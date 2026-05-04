@@ -11,6 +11,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import engine
+
+# --- Routers ---
+from app.routers.auth import router as auth_router
+from app.routers.claims import router as claims_router
+from app.routers.stats import router as stats_router
+from app.routers.vclaim_proxy import router as vclaim_router
 from app.routers.ml_scoring import router as ml_scoring_router
 from app.routers.nlp_coding import router as nlp_coding_router
 
@@ -26,8 +32,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Pramana AI — API Gateway",
-    description="Entry point utama untuk Smart-Claim Co-Pilot",
-    version="0.1.0",
+    description=(
+        "Entry point utama untuk Smart-Claim Co-Pilot.\n\n"
+        "**Auth** — JWT login, refresh, logout\n\n"
+        "**Claims** — List, detail, approve, return, escalate\n\n"
+        "**Stats** — Dashboard aggregation\n\n"
+        "**VClaim** — SEP creation proxy\n\n"
+        "**ML/NLP** — AI engine integration"
+    ),
+    version="0.2.0",
     docs_url="/docs",
     redoc_url="/redoc",
     lifespan=lifespan,
@@ -42,7 +55,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routers
+# --- Task 4.4.1: Auth endpoints ---
+app.include_router(auth_router)
+
+# --- Task 4.4.2: Claim endpoints ---
+app.include_router(claims_router)
+
+# --- Task 4.4.3: Stats endpoint ---
+app.include_router(stats_router)
+
+# --- Task 4.4.4: VClaim proxy ---
+app.include_router(vclaim_router)
+
+# --- Existing ML/NLP integration routers ---
 app.include_router(ml_scoring_router)
 app.include_router(nlp_coding_router)
 
@@ -53,7 +78,6 @@ async def health_check():
     return {
         "status": "healthy",
         "service": "api-gateway",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "environment": settings.app_env,
     }
-
