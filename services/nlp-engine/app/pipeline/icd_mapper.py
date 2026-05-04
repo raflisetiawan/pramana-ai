@@ -20,9 +20,13 @@ from rapidfuzz import fuzz, process
 
 ICDSystem = Literal["icd10", "icd9", "all"]
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-SERVICE_DIR = BASE_DIR.parent
-REPO_ROOT = SERVICE_DIR.parents[1]
+BASE_DIR = Path(__file__).resolve().parents[1]       # .../app/
+SERVICE_DIR = BASE_DIR.parent                         # .../nlp-engine/ (or /app in Docker)
+# REPO_ROOT: two levels above the service dir (dev), or fallback to SERVICE_DIR (Docker)
+try:
+    REPO_ROOT = SERVICE_DIR.parents[1]
+except IndexError:
+    REPO_ROOT = SERVICE_DIR
 DEFAULT_MODEL_NAME = "indobenchmark/indobert-base-p1"
 DEFAULT_MODEL_CACHE_DIR = BASE_DIR / "saved_models"
 

@@ -293,41 +293,41 @@
 
 #### 4.2 Dashboard Triage (Halaman Utama)
 
-- [ ] **4.2.1** Komponen `ClaimTable` dengan kolom:
+- [x] **4.2.1** Komponen `ClaimTable` dengan kolom:
   - No SEP, Nama Pasien (disamarkan), RS, Diagnosa, Total Tagihan, Risk Score, Status
-- [ ] **4.2.2** Filter bar: by risk level (Hijau/Kuning/Merah), by RS, by tanggal
-- [ ] **4.2.3** Komponen `RiskBadge` — badge berwarna berdasarkan risk level
-- [ ] **4.2.4** Sorting by risk score (default: descending)
-- [ ] **4.2.5** Statistik ringkas di header: total klaim, % per risk level
+- [x] **4.2.2** Filter bar: by risk level (Hijau/Kuning/Merah), by RS, by tanggal
+- [x] **4.2.3** Komponen `RiskBadge` — badge berwarna berdasarkan risk level
+- [x] **4.2.4** Sorting by risk score (default: descending)
+- [x] **4.2.5** Statistik ringkas di header: total klaim, % per risk level
 
 #### 4.3 Halaman Detail Klaim
 
-- [ ] **4.3.1** `ClaimDetailPage` — layout dua kolom: info klaim (kiri) + analisis AI (kanan)
-- [ ] **4.3.2** Panel "Saran Koding NLP": tampilkan kode yang disarankan AI vs yang diklaim RS, highlight mismatch
-- [ ] **4.3.3** Panel "Risk Score": tampilkan skor + bar chart SHAP values (top 5 faktor)
-- [ ] **4.3.4** Panel "Aksi Verifikator": tombol Setujui / Kembalikan / Eskalasi + form catatan
-- [ ] **4.3.5** History aksi klaim (dari `audit_logs`)
+- [x] **4.3.1** `ClaimDetailPage` — layout dua kolom: info klaim (kiri) + analisis AI (kanan)
+- [x] **4.3.2** Panel "Saran Koding NLP": tampilkan kode yang disarankan AI vs yang diklaim RS, highlight mismatch
+- [x] **4.3.3** Panel "Risk Score": tampilkan skor + bar chart SHAP values (top 5 faktor)
+- [x] **4.3.4** Panel "Aksi Verifikator": tombol Setujui / Kembalikan / Eskalasi + form catatan
+- [x] **4.3.5** History aksi klaim (dari `audit_logs`)
 
 ### Minggu 8 — API Gateway, Integrasi, & Pilot Simulation
 
 #### 4.4 API Gateway Lengkap
 
-- [ ] **4.4.1** Auth endpoints:
+- [x] **4.4.1** Auth endpoints:
   - `POST /api/v1/auth/login`
   - `POST /api/v1/auth/refresh`
   - `POST /api/v1/auth/logout`
-- [ ] **4.4.2** Claim endpoints:
+- [x] **4.4.2** Claim endpoints:
   - `GET /api/v1/claims` — list dengan filter (risk, rs, tgl, status) + pagination
   - `GET /api/v1/claims/{id}` — detail klaim lengkap (termasuk risk score + NLP result)
   - `POST /api/v1/claims/{id}/approve` — setujui klaim
   - `POST /api/v1/claims/{id}/return` — kembalikan ke RS + catatan
   - `POST /api/v1/claims/{id}/escalate` — eskalasi ke supervisor
-- [ ] **4.4.3** Stats endpoint: `GET /api/v1/stats/dashboard` — angka untuk header dashboard
-- [ ] **4.4.4** VClaim proxy: `POST /api/v1/vclaim/sep/create` — buat SEP via Mock VClaim
+- [x] **4.4.3** Stats endpoint: `GET /api/v1/stats/dashboard` — angka untuk header dashboard
+- [x] **4.4.4** VClaim proxy: `POST /api/v1/vclaim/sep/create` — buat SEP via Mock VClaim
 
 #### 4.5 End-to-End Integration Test
 
-- [ ] **4.5.1** Test skenario lengkap (gunakan pytest):
+- [x] **4.5.1** Test skenario lengkap (gunakan pytest):
 
   ```
   1. Login sebagai admin RS
@@ -342,7 +342,7 @@
   10. Setujui klaim → status berubah di database
   ```
 
-- [ ] **4.5.2** Test dengan 3 skenario klaim:
+- [x] **4.5.2** Test dengan 3 skenario klaim:
   - Klaim normal (Hijau) — CHF straightforward
   - Klaim medium risk (Kuning) — tagihan sedikit tinggi
   - Klaim high risk (Merah) — tanda-tanda upcoding

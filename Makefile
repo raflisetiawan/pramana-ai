@@ -22,6 +22,7 @@ dev: ## Jalankan semua services (docker compose up --build)
 	docker compose up --build -d
 	@echo ""
 	@echo "✅ Semua service berjalan!"
+	@echo "   Frontend:     http://localhost:3000"
 	@echo "   API Gateway:  http://localhost:8000/docs"
 	@echo "   Mock VClaim:  http://localhost:8001/docs"
 	@echo "   NLP Engine:   http://localhost:8002/docs"
@@ -122,8 +123,10 @@ shell-redis: ## Buka redis-cli
 
 health: ## Cek health semua services
 	@echo "Checking services..."
+	@curl -s http://localhost:3000 > /dev/null 2>&1 && echo "✅ Frontend OK" || echo "❌ Frontend not responding"
 	@curl -s http://localhost:8000/health | python -m json.tool 2>/dev/null || echo "❌ API Gateway not responding"
 	@curl -s http://localhost:8001/health | python -m json.tool 2>/dev/null || echo "❌ Mock VClaim not responding"
 	@curl -s http://localhost:8002/health | python -m json.tool 2>/dev/null || echo "❌ NLP Engine not responding"
 	@curl -s http://localhost:8003/health | python -m json.tool 2>/dev/null || echo "❌ ML Engine not responding"
 	@curl -s http://localhost:8004/health | python -m json.tool 2>/dev/null || echo "❌ Auth Service not responding"
+
