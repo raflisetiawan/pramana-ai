@@ -144,15 +144,15 @@
 ### Minggu 4 — Model Training & API
 
 #### 2.3 Model Training
-- [ ] **2.3.1** Notebook training di `services/ml-engine/notebooks/02_training.ipynb`:
+- [x] **2.3.1** Notebook training di `services/ml-engine/notebooks/02_training.ipynb`:
   - Baseline: Random Forest
   - Main model: XGBoost
   - Ensemble: weighted average RF + XGBoost
-- [ ] **2.3.2** Cross-validation 5-fold, catat metrik sesuai `SPEC.md` bagian 8
-- [ ] **2.3.3** Threshold tuning: cari threshold yang memenuhi `false_positive_rate < 0.10`
-- [ ] **2.3.4** SHAP analysis: feature importance global + contoh individual
-- [ ] **2.3.5** Simpan model ke `saved_models/ensemble_v1.pkl`
-- [ ] **2.3.6** Log experiment ke MLflow
+- [x] **2.3.2** Cross-validation 5-fold, catat metrik sesuai `SPEC.md` bagian 8
+- [x] **2.3.3** Threshold tuning: cari threshold yang memenuhi `false_positive_rate < 0.10`
+- [x] **2.3.4** SHAP analysis: feature importance global + contoh individual
+- [x] **2.3.5** Simpan model ke `saved_models/ensemble_v1.pkl`
+- [x] **2.3.6** Log experiment ke MLflow
 
 #### 2.4 ML Engine API
 - [ ] **2.4.1** Buat FastAPI project di `services/ml-engine/`
