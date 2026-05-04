@@ -139,7 +139,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     try {
       const response = await api.post('/api/v1/auth/login', {
-        username,
+        email: username,
         password,
       });
 

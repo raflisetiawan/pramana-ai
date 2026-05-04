@@ -129,7 +129,7 @@ _base_date = date(2024, 1, 10)
 
 CLAIMS = [
     {
-        "no_sep": "0101R00120240110000001",
+        "no_sep": "0101R001240110000001",
         "rs_id": RS_SOETOMO_ID,
         "noka_hash": _hash_noka("0001234567890"),
         "diagnosa_utama": "I50.0",
@@ -144,7 +144,7 @@ CLAIMS = [
         "status": "pending",
     },
     {
-        "no_sep": "0101R00120240111000002",
+        "no_sep": "0101R001240111000002",
         "rs_id": RS_SOETOMO_ID,
         "noka_hash": _hash_noka("0001234567892"),
         "diagnosa_utama": "J18.9",
@@ -159,7 +159,7 @@ CLAIMS = [
         "status": "pending",
     },
     {
-        "no_sep": "0101R00220240112000003",
+        "no_sep": "0101R002240112000003",
         "rs_id": RS_SAIFUL_ID,
         "noka_hash": _hash_noka("0001234567893"),
         "diagnosa_utama": "K35.9",
@@ -174,7 +174,7 @@ CLAIMS = [
         "status": "in_review",
     },
     {
-        "no_sep": "0101R00220240113000004",
+        "no_sep": "0101R002240113000004",
         "rs_id": RS_SAIFUL_ID,
         "noka_hash": _hash_noka("0001234567890"),
         "diagnosa_utama": "I21.9",
@@ -189,7 +189,7 @@ CLAIMS = [
         "status": "pending",
     },
     {
-        "no_sep": "0101R00320240114000005",
+        "no_sep": "0101R003240114000005",
         "rs_id": RS_HAJI_ID,
         "noka_hash": _hash_noka("0001234567891"),
         "diagnosa_utama": "E11.9",
@@ -204,7 +204,7 @@ CLAIMS = [
         "status": "approved",
     },
     {
-        "no_sep": "0101R00320240115000006",
+        "no_sep": "0101R003240115000006",
         "rs_id": RS_HAJI_ID,
         "noka_hash": _hash_noka("0001234567892"),
         "diagnosa_utama": "N18.5",
@@ -219,7 +219,7 @@ CLAIMS = [
         "status": "pending",
     },
     {
-        "no_sep": "0101R00120240116000007",
+        "no_sep": "0101R001240116000007",
         "rs_id": RS_SOETOMO_ID,
         "noka_hash": _hash_noka("0001234567893"),
         "diagnosa_utama": "S72.0",
@@ -234,7 +234,7 @@ CLAIMS = [
         "status": "pending",
     },
     {
-        "no_sep": "0101R00220240117000008",
+        "no_sep": "0101R002240117000008",
         "rs_id": RS_SAIFUL_ID,
         "noka_hash": _hash_noka("0001234567891"),
         "diagnosa_utama": "G40.9",
@@ -249,7 +249,7 @@ CLAIMS = [
         "status": "returned",
     },
     {
-        "no_sep": "0101R00320240118000009",
+        "no_sep": "0101R003240118000009",
         "rs_id": RS_HAJI_ID,
         "noka_hash": _hash_noka("0001234567890"),
         "diagnosa_utama": "M54.5",
@@ -264,7 +264,7 @@ CLAIMS = [
         "status": "approved",
     },
     {
-        "no_sep": "0101R00120240119000010",
+        "no_sep": "0101R001240119000010",
         "rs_id": RS_SOETOMO_ID,
         "noka_hash": _hash_noka("0001234567892"),
         "diagnosa_utama": "C34.9",
