@@ -1,0 +1,82 @@
+[
+  {
+    "id": "RM-001",
+    "judul": "CHF eksaserbasi akut",
+    "expected_primary_icd10": "I50.0",
+    "expected_secondary_icd10": ["I10"],
+    "expected_icd9": ["88.72"],
+    "resume_medis": "Tanggal Masuk: 15/01/2024\nTanggal Pulang: 20/01/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan keluhan sesak napas progresif selama 3 hari. Riwayat gagal jantung kongestif dan hipertensi.\n\nRingkasan Riwayat Penyakit:\nPasien laki-laki 67 tahun dengan riwayat CHF sejak 2 tahun lalu, tidak teratur minum obat. Sesak memberat saat aktivitas ringan dan tidur terlentang. Edema kedua tungkai bawah.\n\nPemeriksaan Fisik:\nTD: 160/100 mmHg, HR: 110x/menit, RR: 28x/menit, SpO2: 90%. JVP meningkat. Ronkhi basah basal bilateral. Edema pitting kedua pretibial.\n\nDiagnosis Utama:\n- Congestive Heart Failure eksaserbasi akut\n\nDiagnosis Sekunder:\n- Hipertensi grade II\n\nTindakan:\n1. Echocardiography\n\nTerapi Pengobatan Selama di RS:\n- Furosemide 40 mg IV 2x1\n- Ramipril 5 mg 1x1\n- Spironolactone 25 mg 1x1\n\nTerapi Pulang:\n- Furosemide 40 mg 1x1 oral\n- Ramipril 5 mg 1x1\n- Spironolactone 25 mg 1x1"
+  },
+  {
+    "id": "RM-002",
+    "judul": "DM Tipe 2 dengan komplikasi",
+    "expected_primary_icd10": "E11.9",
+    "expected_secondary_icd10": ["N18.5"],
+    "expected_icd9": ["39.95"],
+    "resume_medis": "Tanggal Masuk: 03/02/2024\nTanggal Pulang: 08/02/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan lemas, mual, dan nafsu makan menurun selama 5 hari.\n\nRingkasan Riwayat Penyakit:\nPasien wanita 58 tahun, riwayat diabetes melitus tipe 2 sejak 10 tahun, gagal ginjal kronis stage 5 dalam terapi hemodialisis rutin. Kadar gula darah tidak terkontrol.\n\nPemeriksaan Fisik:\nTD: 140/90 mmHg, HR: 88x/menit. Konjungtiva anemis. Edema minimal pretibial bilateral.\n\nHasil Laboratorium:\nGDS: 387 mg/dL, HbA1c: 10.2%, Ureum: 180, Creatinin: 8.5, Hb: 8.2\n\nDiagnosis Utama:\n- Diabetes Melitus Tipe 2 tidak terkontrol\n\nDiagnosis Sekunder:\n- Gagal ginjal kronis stage 5\n\nProsedur:\n1. Hemodialisis\n\nTerapi Pulang:\n- Insulin Lantus 16 unit SC malam hari\n- Insulin Novorapid 8 unit AC 3x1\n- Asam folat 1 mg 1x1"
+  },
+  {
+    "id": "RM-003",
+    "judul": "Pneumonia komunitas",
+    "expected_primary_icd10": "J18.9",
+    "expected_secondary_icd10": [],
+    "expected_icd9": [],
+    "resume_medis": "Tanggal Masuk: 10/03/2024\nTanggal Pulang: 15/03/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan batuk berdahak kuning kehijauan, demam tinggi, dan sesak napas selama 4 hari.\n\nRingkasan Riwayat Penyakit:\nPasien laki-laki 45 tahun, sebelumnya sehat, riwayat merokok 20 tahun. Demam tinggi terus-menerus disertai menggigil. Batuk berdahak purulen dan nyeri dada saat bernapas dalam.\n\nPemeriksaan Fisik:\nTD: 110/70 mmHg, HR: 102x/menit, RR: 24x/menit, Suhu: 39.2C, SpO2: 93%. Ronkhi kasar lobus kanan bawah. Perkusi redup basal kanan.\n\nPemeriksaan Penunjang:\nRontgen thorax: infiltrat lobus kanan bawah\nLeukosit: 18.500/uL, CRP: 85 mg/L\n\nDiagnosis Utama:\n- Pneumonia komunitas\n\nTerapi Pengobatan Selama di RS:\n- Ceftriaxone 2 gram IV 1x1\n- Azithromycin 500 mg PO 1x1\n- Paracetamol 500 mg 3x1\n- Nebulizer salbutamol 3x/hari\n\nTerapi Pulang:\n- Cefuroxime 500 mg 2x1 (5 hari)\n- Paracetamol 500 mg k/p"
+  },
+  {
+    "id": "RM-004",
+    "judul": "Stroke iskemik",
+    "expected_primary_icd10": "I64",
+    "expected_secondary_icd10": ["I10", "E11.9"],
+    "expected_icd9": [],
+    "resume_medis": "Tanggal Masuk: 22/03/2024\nTanggal Pulang: 02/04/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan kelemahan anggota gerak kanan mendadak dan bicara pelo sejak 6 jam SMRS.\n\nRingkasan Riwayat Penyakit:\nPasien laki-laki 62 tahun, riwayat hipertensi dan diabetes melitus tipe 2 tidak terkontrol. Onset mendadak saat beraktivitas. Kelemahan sisi kanan tubuh dan gangguan bicara.\n\nPemeriksaan Fisik:\nTD: 180/110 mmHg. GCS E4M5Vafasia. Hemiparesis dextra. Refleks patologis Babinski (+) kanan.\n\nPemeriksaan Penunjang:\nCT Scan kepala: infark serebri hemisfer kiri\nGDS: 280 mg/dL\n\nDiagnosis Utama:\n- Stroke, not specified as haemorrhage or infarction\n\nDiagnosis Sekunder:\n- Hipertensi\n- Diabetes melitus tipe 2\n\nTerapi Pengobatan Selama di RS:\n- Aspilet 80 mg 1x1\n- Clopidogrel 75 mg 1x1\n- Amlodipin 10 mg 1x1\n- Metformin 500 mg 3x1\n- Citicoline 500 mg IV 2x1\n\nTerapi Pulang:\n- Aspilet 80 mg 1x1\n- Clopidogrel 75 mg 1x1\n- Amlodipin 10 mg 1x1\n- Metformin 500 mg 3x1\n- Fisioterapi rawat jalan"
+  },
+  {
+    "id": "RM-005",
+    "judul": "Apendisitis akut",
+    "expected_primary_icd10": "K35.9",
+    "expected_secondary_icd10": [],
+    "expected_icd9": ["47.09"],
+    "resume_medis": "Tanggal Masuk: 05/04/2024\nTanggal Pulang: 08/04/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan nyeri perut kanan bawah sejak 2 hari yang memberat, disertai mual muntah dan demam.\n\nRingkasan Riwayat Penyakit:\nPasien wanita 28 tahun, nyeri awalnya di ulu hati lalu berpindah ke kanan bawah. Mual dan muntah 3 kali. Demam subfebris. Tidak bisa flatus.\n\nPemeriksaan Fisik:\nTD: 120/80, HR: 96x/menit, Suhu: 38.1C. Nyeri tekan McBurney (+), Rovsing sign (+), defans muskular lokal.\n\nPemeriksaan Penunjang:\nLeukosit: 16.200/uL\nUSG abdomen: appendix 9mm, non-compressible, cairan periappendiks\n\nDiagnosis Utama:\n- Apendisitis akut\n\nTindakan:\n1. Appendectomy laparoskopi\n\nTerapi Pulang:\n- Cefadroxil 500 mg 2x1 (5 hari)\n- Metronidazol 500 mg 3x1 (5 hari)\n- Paracetamol 500 mg k/p"
+  },
+  {
+    "id": "RM-006",
+    "judul": "Infark miokard akut",
+    "expected_primary_icd10": "I21.9",
+    "expected_secondary_icd10": ["I10"],
+    "expected_icd9": ["36.07", "88.72"],
+    "resume_medis": "Tanggal Masuk: 12/04/2024\nTanggal Pulang: 19/04/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan nyeri dada kiri seperti ditekan, menjalar ke lengan kiri, disertai keringat dingin dan mual, onset 4 jam SMRS.\n\nRingkasan Riwayat Penyakit:\nPasien laki-laki 55 tahun, perokok aktif 30 tahun, riwayat hipertensi. Nyeri dada mendadak saat istirahat, khas angina. Intensitas 9/10, tidak membaik dengan istirahat.\n\nPemeriksaan Fisik:\nTD: 100/70, HR: 110x/menit, SpO2: 95%. Diaforesis, akral dingin. Auskultasi jantung S3 gallop.\n\nPemeriksaan Penunjang:\nEKG: ST elevasi V1-V4\nTroponin I: 15.8 ng/mL (N < 0.04)\nCKMB: 120 U/L\n\nDiagnosis Utama:\n- Infark miokard akut (serangan jantung)\n\nDiagnosis Sekunder:\n- Hipertensi\n\nTindakan:\n1. Pemasangan stent koroner (PCI primer)\n2. Echocardiography\n\nTerapi Pulang:\n- Aspirin 100 mg 1x1\n- Clopidogrel 75 mg 1x1\n- Atorvastatin 40 mg 1x1\n- Ramipril 2.5 mg 1x1\n- Bisoprolol 2.5 mg 1x1"
+  },
+  {
+    "id": "RM-007",
+    "judul": "TB paru kasus baru",
+    "expected_primary_icd10": "A16.2",
+    "expected_secondary_icd10": [],
+    "expected_icd9": [],
+    "resume_medis": "Tanggal Masuk: 20/05/2024\nTanggal Pulang: 27/05/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan batuk berdarah dan penurunan berat badan selama 2 bulan.\n\nRingkasan Riwayat Penyakit:\nPasien laki-laki 35 tahun, batuk berdahak produktif sejak 3 bulan, 2 minggu terakhir disertai darah. Penurunan BB 8 kg dalam 2 bulan. Keringat malam, demam subfebris sore hari. Riwayat kontak TB (+) saudara serumah.\n\nPemeriksaan Fisik:\nTD: 110/70, HR: 90x/menit, BB: 48 kg, TB: 170 cm, BMI: 16.6. Konjungtiva anemis. Ronkhi kering apex kiri.\n\nPemeriksaan Penunjang:\nRontgen thorax: infiltrat apex kiri, kavitas\nBTA sputum: negatif (3 spesimen)\nGeneXpert: MTB detected, Rif sensitive\n\nDiagnosis Utama:\n- Tuberkulosis paru BTA negatif, GeneXpert positif\n\nTerapi Pengobatan Selama di RS:\n- OAT FDC Kategori I fase intensif\n- Vitamin B6 10 mg 1x1\n- Diet TKTP\n\nTerapi Pulang:\n- OAT Kategori I (lanjutkan)\n- Vitamin B6 10 mg 1x1\n- Kontrol poli paru 2 minggu"
+  },
+  {
+    "id": "RM-008",
+    "judul": "Fraktur femur proksimal",
+    "expected_primary_icd10": "S72.0",
+    "expected_secondary_icd10": [],
+    "expected_icd9": ["79.35"],
+    "resume_medis": "Tanggal Masuk: 01/06/2024\nTanggal Pulang: 10/06/2024\n\nAlasan Masuk Dirawat:\nPasien datang setelah jatuh dari tangga, tidak bisa berdiri, nyeri hebat pada paha kanan.\n\nRingkasan Riwayat Penyakit:\nPasien wanita 72 tahun, jatuh dari tangga setinggi 1 meter. Mendarat dengan posisi duduk. Nyeri hebat paha kanan, tidak bisa menggerakkan kaki kanan. Riwayat osteoporosis.\n\nPemeriksaan Fisik:\nTD: 130/80, HR: 100x/menit. Paha kanan: deformitas, nyeri tekan, krepitasi, shortening 3 cm. Neurovaskular distal intak.\n\nPemeriksaan Penunjang:\nRontgen femur kanan: fraktur intertrochanter femur kanan\nHb: 10.2, PT/APTT normal\n\nDiagnosis Utama:\n- Fraktur femur proksimal dextra\n\nTindakan:\n1. ORIF femur dengan DHS plate\n2. Transfusi darah PRC 2 unit\n\nTerapi Pulang:\n- Ketorolac 10 mg 3x1 (3 hari)\n- Paracetamol 500 mg 3x1\n- Kalsium + Vitamin D 1x1\n- Fisioterapi rawat jalan"
+  },
+  {
+    "id": "RM-009",
+    "judul": "Sectio caesarea",
+    "expected_primary_icd10": "O82",
+    "expected_secondary_icd10": [],
+    "expected_icd9": ["74.1"],
+    "resume_medis": "Tanggal Masuk: 15/06/2024\nTanggal Pulang: 19/06/2024\n\nAlasan Masuk Dirawat:\nPasien G2P1A0 hamil 38 minggu, datang dengan riwayat SC sebelumnya, janin presentasi bokong.\n\nRingkasan Riwayat Penyakit:\nPasien wanita 32 tahun, kehamilan kedua. Riwayat SC sebelumnya karena CPD. Kehamilan saat ini dengan presentasi bokong, tidak berhasil versi luar. Janin tunggal hidup.\n\nPemeriksaan Fisik:\nTD: 120/80, HR: 82x/menit. TFU 33 cm, DJJ: 142x/menit reguler, presentasi bokong. His (-). Pembukaan (-).\n\nPemeriksaan Penunjang:\nUSG: janin tunggal hidup, presentasi bokong, BPD sesuai 38 minggu, AFI cukup\n\nDiagnosis Utama:\n- Kehamilan 38 minggu bekas SC + presentasi bokong\n\nTindakan:\n1. Sectio caesarea\n\nHasil: bayi laki-laki, BB 3200 gram, PB 50 cm, Apgar 8/9\n\nTerapi Pulang:\n- Cefadroxil 500 mg 2x1 (5 hari)\n- Asam mefenamat 500 mg 3x1 (3 hari)\n- Tablet Fe 1x1\n- Kontrol poli obgin 1 minggu"
+  },
+  {
+    "id": "RM-010",
+    "judul": "Asma eksaserbasi akut",
+    "expected_primary_icd10": "J45.9",
+    "expected_secondary_icd10": [],
+    "expected_icd9": [],
+    "resume_medis": "Tanggal Masuk: 25/07/2024\nTanggal Pulang: 28/07/2024\n\nAlasan Masuk Dirawat:\nPasien datang dengan sesak napas berat dan mengi sejak 12 jam, tidak membaik dengan inhaler rumah.\n\nRingkasan Riwayat Penyakit:\nPasien wanita 40 tahun, riwayat asma sejak kecil. Eksaserbasi akut dipicu paparan debu renovasi rumah. Sesak memberat, wheezing, bicara terbata-bata. Sudah menggunakan salbutamol inhaler 6 kali tanpa perbaikan.\n\nPemeriksaan Fisik:\nTD: 130/85, HR: 120x/menit, RR: 32x/menit, SpO2: 88% udara ruang. Penggunaan otot bantu napas. Wheezing ekspirasi bilateral, fase ekspirasi memanjang.\n\nPemeriksaan Penunjang:\nAGD: pH 7.35, pCO2 45, pO2 60\nRontgen thorax: hiperinflasi bilateral\n\nDiagnosis Utama:\n- Asma eksaserbasi akut berat\n\nTerapi Pengobatan Selama di RS:\n- O2 nasal kanul 4 lpm\n- Nebulizer salbutamol + ipratropium 3x\n- Methylprednisolone 125 mg IV loading, lanjut 62.5 mg IV 2x1\n- Aminofilin drip\n\nTerapi Pulang:\n- Salbutamol inhaler k/p\n- Budesonide inhaler 2x1\n- Methylprednisolone 4 mg taper off (5 hari)\n- Cetirizine 10 mg 1x1"
+  }
+]
