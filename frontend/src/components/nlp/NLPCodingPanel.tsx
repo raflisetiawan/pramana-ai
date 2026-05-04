@@ -1,18 +1,16 @@
 /**
  * Pramana AI — NLPCodingPanel
  * Perbandingan koding yang diklaim RS vs saran AI.
+ * Supports: diagnosa utama, diagnosa sekunder, dan prosedur (ICD-9).
  * Ref: frontend-design.md §5.5
  */
 
-interface CodingEntry {
-  diklaim: { kode: string; desc: string };
-  saran:   { kode: string; desc: string; confidence: number; match: boolean };
-  flag_reason?: string;
-}
+import type { NLPCodingEntry } from '../../lib/mockData';
 
 interface NLPCodingPanelProps {
-  diagnosaUtama: CodingEntry;
-  diagnosaSekunder: CodingEntry[];
+  diagnosaUtama: NLPCodingEntry;
+  diagnosaSekunder: NLPCodingEntry[];
+  prosedur?: NLPCodingEntry[];
 }
 
 function ConfidenceBar({ value }: { value: number }) {
@@ -32,7 +30,7 @@ function ConfidenceBar({ value }: { value: number }) {
   );
 }
 
-function CodingRow({ entry, label }: { entry: CodingEntry; label: string }) {
+function CodingRow({ entry, label }: { entry: NLPCodingEntry; label: string }) {
   return (
     <div style={{ marginBottom: '16px' }}>
       <p style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -40,6 +38,11 @@ function CodingRow({ entry, label }: { entry: CodingEntry; label: string }) {
         {!entry.saran.match && (
           <span style={{ marginLeft: '10px', color: 'var(--risk-medium)', fontSize: '10px', background: 'var(--risk-medium-bg)', border: '1px solid var(--risk-medium-border)', padding: '2px 6px', borderRadius: '3px' }}>
             ⚠ MISMATCH TERDETEKSI
+          </span>
+        )}
+        {entry.saran.match && (
+          <span style={{ marginLeft: '10px', color: 'var(--risk-low)', fontSize: '10px', background: 'var(--risk-low-bg)', border: '1px solid var(--risk-low-border)', padding: '2px 6px', borderRadius: '3px' }}>
+            ✓ SESUAI
           </span>
         )}
       </p>
@@ -73,13 +76,68 @@ function CodingRow({ entry, label }: { entry: CodingEntry; label: string }) {
   );
 }
 
-export function NLPCodingPanel({ diagnosaUtama, diagnosaSekunder }: NLPCodingPanelProps) {
+/** Summary section: count matches and mismatches */
+function CodingSummary({ diagnosaUtama, diagnosaSekunder, prosedur }: NLPCodingPanelProps) {
+  const allEntries = [diagnosaUtama, ...diagnosaSekunder, ...(prosedur || [])];
+  const matches = allEntries.filter((e) => e.saran.match).length;
+  const mismatches = allEntries.filter((e) => !e.saran.match).length;
+  const avgConfidence = allEntries.reduce((sum, e) => sum + e.saran.confidence, 0) / allEntries.length;
+
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '20px',
+      padding: '12px 0 16px',
+      borderBottom: '1px solid var(--border-subtle)',
+      marginBottom: '16px',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--risk-low)', display: 'inline-block' }} />
+        <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Sesuai:</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 500, color: 'var(--risk-low)' }}>{matches}</span>
+      </div>
+      {mismatches > 0 && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--risk-medium)', display: 'inline-block' }} />
+          <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Mismatch:</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 500, color: 'var(--risk-medium)' }}>{mismatches}</span>
+        </div>
+      )}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Avg Confidence:</span>
+        <span style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '13px',
+          fontWeight: 500,
+          color: avgConfidence >= 0.75 ? 'var(--risk-low)' : 'var(--risk-medium)',
+        }}>
+          {Math.round(avgConfidence * 100)}%
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export function NLPCodingPanel({ diagnosaUtama, diagnosaSekunder, prosedur }: NLPCodingPanelProps) {
   return (
     <div style={{ padding: '20px' }}>
-      <CodingRow entry={diagnosaUtama} label="Diagnosa Utama" />
+      <CodingSummary
+        diagnosaUtama={diagnosaUtama}
+        diagnosaSekunder={diagnosaSekunder}
+        prosedur={prosedur}
+      />
+      <CodingRow entry={diagnosaUtama} label="Diagnosa Utama (ICD-10)" />
       {diagnosaSekunder.map((entry, i) => (
-        <CodingRow key={i} entry={entry} label={`Diagnosa Sekunder ${i + 1}`} />
+        <CodingRow key={i} entry={entry} label={`Diagnosa Sekunder ${i + 1} (ICD-10)`} />
       ))}
+      {prosedur && prosedur.length > 0 && (
+        <>
+          <div style={{ height: '1px', background: 'var(--border-subtle)', margin: '8px 0 16px' }} />
+          {prosedur.map((entry, i) => (
+            <CodingRow key={`p${i}`} entry={entry} label={`Prosedur ${i + 1} (ICD-9-CM)`} />
+          ))}
+        </>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 /**
  * Pramana AI — ClaimTable
  * Tabel utama verifikator. Kolom, hover, sticky header, high-risk row styling.
+ * Sorting by risk score (default: descending).
  * Ref: frontend-design.md §5.2
  */
 
@@ -9,12 +10,13 @@ import { useNavigate } from 'react-router-dom';
 import type { Claim } from '../../lib/types';
 import { RiskBadge } from '../risk/RiskBadge';
 import { ClaimStatusBadge } from './ClaimStatusBadge';
-import { ClaimFilterBar, type FilterState } from './ClaimFilterBar';
+import { ClaimFilterBar, INITIAL_FILTERS, type FilterState } from './ClaimFilterBar';
 import { formatRupiah, formatDate, maskPatientName, shortenHospitalName } from '../../lib/formatters';
 
 interface ClaimTableProps {
   claims: Claim[];
   loading?: boolean;
+  hospitals: string[];
 }
 
 function CopyableCode({ text }: { text: string }) {
@@ -103,14 +105,22 @@ function IcdCell({ code, desc }: { code: string; desc: string }) {
   );
 }
 
-export function ClaimTable({ claims, loading }: ClaimTableProps) {
+export function ClaimTable({ claims, loading, hospitals }: ClaimTableProps) {
   const navigate = useNavigate();
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
-  const [filters, setFilters] = useState<FilterState>({ riskLevel: '', status: '', search: '' });
+  const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
 
   const filtered = claims
     .filter((c) => !filters.riskLevel || c.risk_level === filters.riskLevel)
-    .filter((c) => !filters.status || c.status === filters.status)
+    .filter((c) => !filters.hospital || c.hospital === filters.hospital)
+    .filter((c) => {
+      if (!filters.dateFrom) return true;
+      return c.tgl_pengajuan >= filters.dateFrom;
+    })
+    .filter((c) => {
+      if (!filters.dateTo) return true;
+      return c.tgl_pengajuan <= filters.dateTo;
+    })
     .filter((c) => {
       const q = filters.search.toLowerCase();
       return !q || c.no_sep.toLowerCase().includes(q) || c.patient_name.toLowerCase().includes(q);
@@ -128,10 +138,11 @@ export function ClaimTable({ claims, loading }: ClaimTableProps) {
         onChange={setFilters}
         totalShown={filtered.length}
         totalAll={claims.length}
+        hospitals={hospitals}
       />
       <div className="claim-table-wrapper" style={{ maxHeight: 'calc(100vh - 330px)' }}>
         {filtered.length === 0 ? (
-          <EmptyState onReset={() => setFilters({ riskLevel: '', status: '', search: '' })} />
+          <EmptyState onReset={() => setFilters(INITIAL_FILTERS)} />
         ) : (
           <table className="claim-table">
             <thead>
@@ -141,7 +152,8 @@ export function ClaimTable({ claims, loading }: ClaimTableProps) {
                 <th style={{ width: '150px' }}>Pasien</th>
                 <th style={{ width: '200px' }}>RS Pengaju</th>
                 <th style={{ width: '160px' }}>Diagnosa Utama</th>
-                <th style={{ width: '130px' }} className="right">
+                <th style={{ width: '130px' }} className="right">Total Tagihan</th>
+                <th style={{ width: '100px' }} className="right">
                   <button
                     onClick={toggleSort}
                     style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', fontWeight: 600, fontSize: '11px', letterSpacing: '0.07em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '4px', marginLeft: 'auto' }}
@@ -181,6 +193,11 @@ export function ClaimTable({ claims, loading }: ClaimTableProps) {
                   <td className="right">
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-secondary)' }}>
                       {formatRupiah(c.total_tagihan)}
+                    </span>
+                  </td>
+                  <td className="right">
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 500 }}>
+                      {c.risk_score}
                     </span>
                   </td>
                   <td style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>

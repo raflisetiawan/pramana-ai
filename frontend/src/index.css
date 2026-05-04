@@ -553,6 +553,19 @@ body {
 }
 .filter-chip button:hover { opacity: 1; }
 
+/* Date input inside filter bar */
+input[type="date"].filter-select {
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+input[type="date"].filter-select::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
 /* ============================================================================
    Buttons
    ============================================================================ */
