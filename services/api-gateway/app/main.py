@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.database import engine
 from app.routers.ml_scoring import router as ml_scoring_router
+from app.routers.nlp_coding import router as nlp_coding_router
 
 
 @asynccontextmanager
@@ -43,6 +44,7 @@ app.add_middleware(
 
 # Routers
 app.include_router(ml_scoring_router)
+app.include_router(nlp_coding_router)
 
 
 @app.get("/health")
