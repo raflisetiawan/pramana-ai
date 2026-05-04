@@ -118,25 +118,25 @@
 ### Minggu 3 — Data Pipeline & Feature Engineering
 
 #### 2.1 Data Sintetis untuk Training
-- [ ] **2.1.1** Buat script generator data sintetis klaim BPJS:
+- [x] **2.1.1** Buat script generator data sintetis klaim BPJS:
   - Target: 10.000 sampel (80% "wajar", 20% "anomali")
   - Fitur yang di-generate sesuai `SPEC.md` bagian 7 (`FEATURE_GROUPS`)
   - Simpan ke `tests/fixtures/synthetic_claims.csv`
-- [ ] **2.1.2** Definisi rule untuk labeling anomali (gunakan untuk generate):
+- [x] **2.1.2** Definisi rule untuk labeling anomali (gunakan untuk generate):
   - `rasio_terhadap_ina_cbgs > 1.5` → anomali
   - `tagihan_per_hari > percentile_95` untuk diagnosa yang sama → anomali
   - `los < 1` untuk diagnosa berat (CHF, AMI) → anomali
   - kombinasi diagnosa + prosedur yang tidak lazim → anomali
 
 #### 2.2 Feature Engineering Pipeline
-- [ ] **2.2.1** Buat `services/ml-engine/app/features/extractor.py`:
+- [x] **2.2.1** Buat `services/ml-engine/app/features/extractor.py`:
   - Fungsi `extract_features(claim: dict) -> pd.DataFrame`
   - Handle missing values (median imputation untuk numerik, mode untuk kategori)
   - Encoding: ordinal untuk `tipe_rs`, target encoding untuk `diagnosa_utama`
-- [ ] **2.2.2** Buat `services/ml-engine/app/features/preprocessor.py`:
+- [x] **2.2.2** Buat `services/ml-engine/app/features/preprocessor.py`:
   - `StandardScaler` untuk fitur numerik
   - Simpan scaler yang sudah fit ke file (untuk digunakan saat inferensi)
-- [ ] **2.2.3** Notebook eksplorasi di `services/ml-engine/notebooks/01_eda.ipynb`:
+- [x] **2.2.3** Notebook eksplorasi di `services/ml-engine/notebooks/01_eda.ipynb`:
   - Distribusi setiap fitur
   - Korelasi fitur dengan label
   - Class imbalance analysis
