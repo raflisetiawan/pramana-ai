@@ -286,10 +286,10 @@
 
 #### 4.1 Auth Flow
 
-- [ ] **4.1.1** Setup React + TypeScript + Vite di `frontend/`
-- [ ] **4.1.2** Halaman Login — form + panggil `POST /api/v1/auth/login`
-- [ ] **4.1.3** JWT storage di memory (bukan localStorage) + auto-refresh
-- [ ] **4.1.4** Protected routes — redirect ke login jika tidak ada token
+- [x] **4.1.1** Setup React + TypeScript + Vite di `frontend/`
+- [x] **4.1.2** Halaman Login — form + panggil `POST /api/v1/auth/login`
+- [x] **4.1.3** JWT storage di memory (bukan localStorage) + auto-refresh
+- [x] **4.1.4** Protected routes — redirect ke login jika tidak ada token
 
 #### 4.2 Dashboard Triage (Halaman Utama)
 
