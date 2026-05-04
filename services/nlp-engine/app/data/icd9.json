@@ -1,0 +1,17 @@
+[
+  { "kode": "36.06", "nama": "Insertion of Non-Drug-Eluting Coronary Artery Stent" },
+  { "kode": "36.07", "nama": "Insertion of Drug-Eluting Coronary Artery Stent" },
+  { "kode": "39.95", "nama": "Hemodialisis" },
+  { "kode": "39.99", "nama": "Other Operations on Vessels" },
+  { "kode": "47.09", "nama": "Other Appendectomy" },
+  { "kode": "51.23", "nama": "Laparoscopic Cholecystectomy" },
+  { "kode": "79.35", "nama": "Open Reduction of Fracture with Internal Fixation, Femur" },
+  { "kode": "81.54", "nama": "Total Knee Replacement" },
+  { "kode": "88.72", "nama": "Diagnostik Ultrasonografi Jantung (Echocardiography)" },
+  { "kode": "96.04", "nama": "Insertion of Endotracheal Tube" },
+  { "kode": "96.71", "nama": "Continuous Invasive Mechanical Ventilation < 96 Hours" },
+  { "kode": "99.04", "nama": "Transfusi Whole Blood" },
+  { "kode": "99.15", "nama": "Parenteral Infusion of Concentrated Nutritional Substances" },
+  { "kode": "33.24", "nama": "Closed Biopsy of Bronchus" },
+  { "kode": "74.1", "nama": "Low Cervical Caesarean Section" }
+]
