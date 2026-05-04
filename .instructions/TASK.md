@@ -155,16 +155,16 @@
 - [x] **2.3.6** Log experiment ke MLflow
 
 #### 2.4 ML Engine API
-- [ ] **2.4.1** Buat FastAPI project di `services/ml-engine/`
-- [ ] **2.4.2** Load model saat startup (singleton, lazy load)
-- [ ] **2.4.3** `POST /ml/score-claim` — sesuai contract di `SPEC.md` bagian 5
+- [x] **2.4.1** Buat FastAPI project di `services/ml-engine/`
+- [x] **2.4.2** Load model saat startup (singleton, lazy load)
+- [x] **2.4.3** `POST /ml/score-claim` — sesuai contract di `SPEC.md` bagian 5
   - Extract features dari input
   - Run inference
   - Hitung SHAP values
   - Return risk score + top 5 contributing features
-- [ ] **2.4.4** `GET /ml/health` — health check + model version
-- [ ] **2.4.5** `GET /ml/model-info` — info model yang sedang dipakai
-- [ ] **2.4.6** Integrasi ke API Gateway: setelah klaim masuk, otomatis panggil ML Engine
+- [x] **2.4.4** `GET /ml/health` — health check + model version
+- [x] **2.4.5** `GET /ml/model-info` — info model yang sedang dipakai
+- [x] **2.4.6** Integrasi ke API Gateway: setelah klaim masuk, otomatis panggil ML Engine
 
 #### 2.5 Testing Phase 2
 - [ ] **2.5.1** Unit test: feature extractor (termasuk edge case missing values)

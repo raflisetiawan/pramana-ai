@@ -426,54 +426,11 @@ def log_to_mlflow(
 
 
 # ============================================================================
-# Ensemble Model
+# Ensemble Model — imported from risk_scorer (canonical location for pickling)
 # ============================================================================
 
+from app.models.risk_scorer import EnsembleClassifier
 
-class EnsembleClassifier:
-    """Weighted average ensemble of RF + XGBoost.
-
-    Combines predictions from both models using weighted averaging
-    of predicted probabilities.
-    """
-
-    def __init__(
-        self,
-        rf_model: RandomForestClassifier,
-        xgb_model: Any,
-        rf_weight: float = 0.4,
-        xgb_weight: float = 0.6,
-        threshold: float = 0.5,
-        version: str = "ensemble_v1",
-    ):
-        self.rf_model = rf_model
-        self.xgb_model = xgb_model
-        self.rf_weight = rf_weight
-        self.xgb_weight = xgb_weight
-        self.threshold = threshold
-        self.version = version
-        self.feature_names: list[str] = []
-        self.metrics: Optional[dict] = None
-        self.shap_importance: Optional[list] = None
-
-    def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
-        """Get weighted average probabilities from both models."""
-        rf_prob = self.rf_model.predict_proba(X)[:, 1]
-        xgb_prob = self.xgb_model.predict_proba(X)[:, 1]
-        ensemble_prob = (
-            self.rf_weight * rf_prob + self.xgb_weight * xgb_prob
-        )
-        return np.column_stack([1 - ensemble_prob, ensemble_prob])
-
-    def predict(self, X: pd.DataFrame) -> np.ndarray:
-        """Predict using the tuned threshold."""
-        proba = self.predict_proba(X)[:, 1]
-        return (proba >= self.threshold).astype(int)
-
-    def score_claim(self, X: pd.DataFrame) -> np.ndarray:
-        """Get risk score 0-100 for each claim."""
-        proba = self.predict_proba(X)[:, 1]
-        return np.clip(proba * 100, 0, 100)
 
 
 # ============================================================================

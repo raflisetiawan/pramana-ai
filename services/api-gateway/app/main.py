@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import engine
+from app.routers.ml_scoring import router as ml_scoring_router
 
 
 @asynccontextmanager
@@ -40,6 +41,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Routers
+app.include_router(ml_scoring_router)
+
 
 @app.get("/health")
 async def health_check():
@@ -50,3 +54,4 @@ async def health_check():
         "version": "0.1.0",
         "environment": settings.app_env,
     }
+
