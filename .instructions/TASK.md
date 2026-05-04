@@ -167,9 +167,9 @@
 - [x] **2.4.6** Integrasi ke API Gateway: setelah klaim masuk, otomatis panggil ML Engine
 
 #### 2.5 Testing Phase 2
-- [ ] **2.5.1** Unit test: feature extractor (termasuk edge case missing values)
-- [ ] **2.5.2** Unit test: API endpoint scoring dengan klaim dummy
-- [ ] **2.5.3** Performance test: single prediction < 100ms, batch 100 klaim < 5 detik
+- [x] **2.5.1** Unit test: feature extractor (termasuk edge case missing values)
+- [x] **2.5.2** Unit test: API endpoint scoring dengan klaim dummy
+- [x] **2.5.3** Performance test: single prediction < 100ms, batch 100 klaim < 5 detik
 
 **✅ Deliverable Phase 2:** Setiap klaim yang masuk otomatis mendapat risk score + penjelasan. Dashboard bisa menampilkan badge Hijau/Merah.
 
