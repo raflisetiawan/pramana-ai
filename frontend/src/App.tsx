@@ -9,6 +9,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import LoginPage from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ClaimDetailPage from './pages/ClaimDetail';
+import AnalyticsPage from './pages/Analytics';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/"           element={<Dashboard />} />
             <Route path="/claims"     element={<Dashboard />} />
             <Route path="/claims/:id" element={<ClaimDetailPage />} />
+            <Route path="/analytics"  element={<AnalyticsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

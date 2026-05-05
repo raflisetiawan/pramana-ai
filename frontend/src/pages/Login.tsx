@@ -7,6 +7,7 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../lib/auth';
+import ThemeToggle from '../components/layout/ThemeToggle';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -30,6 +31,11 @@ export default function LoginPage() {
 
   return (
     <div className="login-page">
+      {/* Theme Toggle - Floating di kanan atas */}
+      <div style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 100 }}>
+        <ThemeToggle />
+      </div>
+
       {/* ── Kiri: Branding ── */}
       <div className="login-left">
         {/* Logo */}
@@ -162,31 +168,6 @@ export default function LoginPage() {
               }
             </button>
           </form>
-
-          {/* Demo credentials */}
-          <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
-            <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Demo Credentials
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-              {[
-                { user: 'admin@pramana.ai', pass: 'admin123', role: 'Admin BPJS' },
-                { user: 'verifikator1@bpjs.go.id', pass: 'verif123', role: 'Verifikator' },
-                { user: 'admin@rssoetomo.go.id', pass: 'rsadmin123', role: 'Admin RS' },
-              ].map((d) => (
-                <button
-                  key={d.user}
-                  type="button"
-                  onClick={() => { setUsername(d.user); setPassword(d.pass); }}
-                  style={{ textAlign: 'left', background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)', borderRadius: '4px', padding: '6px 10px', cursor: 'pointer', fontSize: '12px', color: 'var(--text-secondary)', display: 'flex', gap: '8px', alignItems: 'center' }}
-                >
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-secondary)' }}>{d.user}</span>
-                  <span style={{ color: 'var(--text-muted)' }}>·</span>
-                  <span>{d.role}</span>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>

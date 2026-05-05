@@ -4,6 +4,8 @@
  * Ref: frontend-design.md §6.2
  */
 
+import ThemeToggle from './ThemeToggle';
+
 interface TopBarProps {
   title: string;
   subtitle?: string;
@@ -24,6 +26,9 @@ export function TopBar({ title, subtitle }: TopBarProps) {
 
       {/* Right: actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
         {/* Notification bell */}
         <button
           id="topbar-notifications-btn"

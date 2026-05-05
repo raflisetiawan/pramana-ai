@@ -495,7 +495,7 @@ export default function ClaimDetailPage() {
                 <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>
                   {[
                     '1 diagnosa utama',
-                    nlpResult.diagnosaSekunder.length > 0 ? `${nlpResult.diagnosaSekunder.length} sekunder` : null,
+                    nlpResult.diagnosa_sekunder.length > 0 ? `${nlpResult.diagnosa_sekunder.length} sekunder` : null,
                     `${nlpResult.prosedur.length} prosedur`,
                   ].filter(Boolean).join(' · ')}
                 </span>

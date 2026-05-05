@@ -7,61 +7,109 @@
 
 :root {
   /* Background — Dark slate dengan nuansa navy */
-  --bg-base:        #0D1117;
-  --bg-surface:     #161B22;
-  --bg-elevated:    #1C2128;
-  --bg-overlay:     #21262D;
+  --bg-base: #0D1117;
+  --bg-surface: #161B22;
+  --bg-elevated: #1C2128;
+  --bg-overlay: #21262D;
 
   /* Border */
-  --border-subtle:  #30363D;
+  --border-subtle: #30363D;
   --border-default: #444C56;
-  --border-strong:  #6E7681;
+  --border-strong: #6E7681;
 
   /* Teks */
-  --text-primary:   #E6EDF3;
+  --text-primary: #E6EDF3;
   --text-secondary: #8B949E;
-  --text-muted:     #484F58;
-  --text-inverse:   #0D1117;
+  --text-muted: #484F58;
+  --text-inverse: #0D1117;
 
   /* Aksen Utama — Biru (tombol, link aktif) */
-  --accent-primary:   #2F81F7;
+  --accent-primary: #2F81F7;
   --accent-secondary: #0EA5E9;
-  --accent-glow:      rgba(47, 129, 247, 0.15);
+  --accent-glow: rgba(47, 129, 247, 0.15);
 
   /* Risk Levels */
-  --risk-low:         #1A7F37;
-  --risk-low-bg:      rgba(26, 127, 55, 0.12);
-  --risk-low-border:  rgba(26, 127, 55, 0.4);
+  --risk-low: #1A7F37;
+  --risk-low-bg: rgba(26, 127, 55, 0.12);
+  --risk-low-border: rgba(26, 127, 55, 0.4);
 
-  --risk-medium:      #9A6700;
-  --risk-medium-bg:   rgba(154, 103, 0, 0.12);
+  --risk-medium: #9A6700;
+  --risk-medium-bg: rgba(154, 103, 0, 0.12);
   --risk-medium-border: rgba(154, 103, 0, 0.4);
 
-  --risk-high:        #B91C1C;
-  --risk-high-bg:     rgba(185, 28, 28, 0.12);
+  --risk-high: #B91C1C;
+  --risk-high-bg: rgba(185, 28, 28, 0.12);
   --risk-high-border: rgba(185, 28, 28, 0.4);
 
   /* Status Klaim */
-  --status-pending:   #6366F1;
-  --status-approved:  #22C55E;
-  --status-returned:  #F97316;
+  --status-pending: #6366F1;
+  --status-approved: #22C55E;
+  --status-returned: #F97316;
   --status-escalated: #EC4899;
 
   /* Font stack */
-  --font-mono:    'IBM Plex Mono', 'Cascadia Code', monospace;
-  --font-sans:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Cascadia Code', monospace;
+  --font-sans: 'DM Sans', 'Helvetica Neue', sans-serif;
   --font-display: 'Lora', Georgia, serif;
+}
+
+/* Light Mode Theme */
+:root[data-theme="light"] {
+  /* Background — Light clean */
+  --bg-base: #FFFFFF;
+  --bg-surface: #F6F8FA;
+  --bg-elevated: #FFFFFF;
+  --bg-overlay: #F0F3F6;
+
+  /* Border */
+  --border-subtle: #D0D7DE;
+  --border-default: #B1BAC4;
+  --border-strong: #8C959F;
+
+  /* Teks */
+  --text-primary: #1F2328;
+  --text-secondary: #656D76;
+  --text-muted: #8C959F;
+  --text-inverse: #FFFFFF;
+
+  /* Aksen Utama — Biru (tombol, link aktif) */
+  --accent-primary: #0969DA;
+  --accent-secondary: #0EA5E9;
+  --accent-glow: rgba(9, 105, 218, 0.12);
+
+  /* Risk Levels */
+  --risk-low: #1A7F37;
+  --risk-low-bg: rgba(26, 127, 55, 0.08);
+  --risk-low-border: rgba(26, 127, 55, 0.3);
+
+  --risk-medium: #9A6700;
+  --risk-medium-bg: rgba(154, 103, 0, 0.08);
+  --risk-medium-border: rgba(154, 103, 0, 0.3);
+
+  --risk-high: #CF222E;
+  --risk-high-bg: rgba(207, 34, 46, 0.08);
+  --risk-high-border: rgba(207, 34, 46, 0.3);
+
+  /* Status Klaim */
+  --status-pending: #6366F1;
+  --status-approved: #1A7F37;
+  --status-returned: #BC4C00;
+  --status-escalated: #BF3989;
 }
 
 /* ============================================================================
    Base Styles
    ============================================================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -74,6 +122,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+/* Smooth transition untuk semua elemen yang menggunakan CSS variables */
+* {
+  transition: background-color 200ms ease-out,
+    border-color 200ms ease-out,
+    color 200ms ease-out;
+}
+
+/* Kecuali untuk elemen yang sudah punya transition sendiri */
+.btn,
+.nav-item,
+.form-input,
+.form-textarea,
+.filter-select,
+.search-input {
+  transition: background-color 150ms, opacity 150ms, transform 80ms, border-color 150ms;
 }
 
 /* ============================================================================
@@ -127,8 +193,13 @@ body {
   font-weight: 500;
 }
 
-.font-mono { font-family: var(--font-mono); }
-.font-sans  { font-family: var(--font-sans); }
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
 
 /* ============================================================================
    Layout Components
@@ -222,7 +293,9 @@ body {
   padding-left: 7px;
 }
 
-.nav-item svg { min-width: 20px; }
+.nav-item svg {
+  min-width: 20px;
+}
 
 .sidebar-user {
   padding: 12px;
@@ -330,28 +403,42 @@ body {
   border-color: var(--risk-low-border);
   color: var(--risk-low);
 }
-.risk-badge.low .risk-badge-dot { background-color: var(--risk-low); }
+
+.risk-badge.low .risk-badge-dot {
+  background-color: var(--risk-low);
+}
 
 .risk-badge.medium {
   background-color: var(--risk-medium-bg);
   border-color: var(--risk-medium-border);
   color: var(--risk-medium);
 }
-.risk-badge.medium .risk-badge-dot { background-color: var(--risk-medium); }
+
+.risk-badge.medium .risk-badge-dot {
+  background-color: var(--risk-medium);
+}
 
 .risk-badge.high {
   background-color: var(--risk-high-bg);
   border-color: var(--risk-high-border);
   color: var(--risk-high);
 }
+
 .risk-badge.high .risk-badge-dot {
   background-color: var(--risk-high);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* ============================================================================
@@ -369,11 +456,30 @@ body {
   letter-spacing: 0.05em;
 }
 
-.status-badge.pending   { background: rgba(99,102,241,0.15);  color: #818CF8; }
-.status-badge.approved  { background: rgba(34,197,94,0.12);   color: #22C55E; }
-.status-badge.returned  { background: rgba(249,115,22,0.12);  color: #FB923C; }
-.status-badge.escalated { background: rgba(236,72,153,0.12);  color: #F472B6; }
-.status-badge.in_review { background: rgba(47,129,247,0.12);  color: #60A5FA; }
+.status-badge.pending {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818CF8;
+}
+
+.status-badge.approved {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22C55E;
+}
+
+.status-badge.returned {
+  background: rgba(249, 115, 22, 0.12);
+  color: #FB923C;
+}
+
+.status-badge.escalated {
+  background: rgba(236, 72, 153, 0.12);
+  color: #F472B6;
+}
+
+.status-badge.in_review {
+  background: rgba(47, 129, 247, 0.12);
+  color: #60A5FA;
+}
 
 /* ============================================================================
    Claim Table
@@ -406,7 +512,9 @@ body {
   white-space: nowrap;
 }
 
-.claim-table thead th.right { text-align: right; }
+.claim-table thead th.right {
+  text-align: right;
+}
 
 .claim-table tbody tr {
   border-bottom: 1px solid var(--border-subtle);
@@ -414,7 +522,9 @@ body {
   cursor: pointer;
 }
 
-.claim-table tbody tr:hover { background-color: var(--bg-overlay); }
+.claim-table tbody tr:hover {
+  background-color: var(--bg-overlay);
+}
 
 .claim-table tbody tr.high-risk {
   border-left: 2px solid var(--risk-high);
@@ -430,8 +540,14 @@ body {
   vertical-align: middle;
 }
 
-.claim-table td.right { text-align: right; }
-.claim-table td.mono  { font-family: var(--font-mono); font-size: 12px; }
+.claim-table td.right {
+  text-align: right;
+}
+
+.claim-table td.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
 
 /* ============================================================================
    Stats Header Cards
@@ -475,9 +591,17 @@ body {
   gap: 4px;
 }
 
-.trend-up   { color: var(--risk-high); }
-.trend-down { color: var(--risk-low); }
-.trend-neutral { color: var(--text-muted); }
+.trend-up {
+  color: var(--risk-high);
+}
+
+.trend-down {
+  color: var(--risk-low);
+}
+
+.trend-neutral {
+  color: var(--text-muted);
+}
 
 /* ============================================================================
    Filter Bar
@@ -503,7 +627,10 @@ body {
   transition: border-color 150ms;
 }
 
-.filter-select:focus { border-color: var(--accent-primary); color: var(--text-primary); }
+.filter-select:focus {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
 
 .search-input {
   background-color: var(--bg-elevated);
@@ -518,10 +645,21 @@ body {
   transition: border-color 150ms, width 200ms;
 }
 
-.search-input:focus { border-color: var(--accent-primary); width: 260px; }
-.search-input::placeholder { color: var(--text-muted); }
+.search-input:focus {
+  border-color: var(--accent-primary);
+  width: 260px;
+}
 
-.search-wrapper { position: relative; display: flex; align-items: center; }
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .search-icon {
   position: absolute;
   left: 8px;
@@ -536,7 +674,7 @@ body {
   padding: 4px 8px;
   border-radius: 4px;
   background-color: var(--accent-glow);
-  border: 1px solid rgba(47,129,247,0.3);
+  border: 1px solid rgba(47, 129, 247, 0.3);
   color: var(--accent-secondary);
   font-size: 12px;
   font-weight: 500;
@@ -551,7 +689,10 @@ body {
   line-height: 1;
   opacity: 0.7;
 }
-.filter-chip button:hover { opacity: 1; }
+
+.filter-chip button:hover {
+  opacity: 1;
+}
 
 /* Date input inside filter bar */
 input[type="date"].filter-select {
@@ -561,9 +702,17 @@ input[type="date"].filter-select {
   padding: 6px 8px;
 }
 
+:root[data-theme="light"] input[type="date"].filter-select {
+  color-scheme: light;
+}
+
 input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   filter: invert(0.6);
   cursor: pointer;
+}
+
+:root[data-theme="light"] input[type="date"].filter-select::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
 }
 
 /* ============================================================================
@@ -585,42 +734,68 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   text-decoration: none;
   white-space: nowrap;
 }
-.btn:active:not(:disabled) { transform: scale(0.98); }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
 
 .btn-primary {
   background-color: var(--accent-primary);
   color: #fff;
 }
-.btn-primary:hover:not(:disabled) { background-color: #388bfd; }
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #388bfd;
+}
 
 .btn-approve {
   background-color: var(--risk-low);
   color: #fff;
 }
-.btn-approve:hover:not(:disabled) { background-color: #2da44e; }
+
+.btn-approve:hover:not(:disabled) {
+  background-color: #2da44e;
+}
 
 .btn-return {
   background-color: var(--risk-medium);
   color: #fff;
 }
-.btn-return:hover:not(:disabled) { background-color: #b57800; }
+
+.btn-return:hover:not(:disabled) {
+  background-color: #b57800;
+}
 
 .btn-escalate {
   background-color: var(--bg-elevated);
   border-color: var(--border-default);
   color: var(--text-primary);
 }
-.btn-escalate:hover:not(:disabled) { background-color: var(--bg-overlay); }
+
+.btn-escalate:hover:not(:disabled) {
+  background-color: var(--bg-overlay);
+}
 
 .btn-ghost {
   background: transparent;
   border-color: var(--border-default);
   color: var(--text-secondary);
 }
-.btn-ghost:hover:not(:disabled) { background-color: var(--bg-elevated); color: var(--text-primary); }
 
-.btn-sm { padding: 5px 10px; font-size: 12px; }
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
 
 /* ============================================================================
    Form Elements
@@ -636,7 +811,8 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   margin-bottom: 6px;
 }
 
-.form-input, .form-textarea {
+.form-input,
+.form-textarea {
   width: 100%;
   background-color: var(--bg-elevated);
   border: 1px solid var(--border-default);
@@ -649,14 +825,21 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   transition: border-color 150ms;
 }
 
-.form-input:focus, .form-textarea:focus {
+.form-input:focus,
+.form-textarea:focus {
   border-color: var(--accent-primary);
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
 
-.form-textarea { min-height: 80px; resize: vertical; }
+.form-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
 
 /* ============================================================================
    Skeleton Loading
@@ -669,8 +852,15 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
 }
 
 @keyframes skeleton-pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* ============================================================================
@@ -697,19 +887,37 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   border-radius: 6px;
   min-width: 280px;
   max-width: 360px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   animation: toast-in 250ms ease-out;
 }
 
 @keyframes toast-in {
-  from { transform: translateX(40px); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.toast.success { border-left: 3px solid var(--risk-low); }
-.toast.warning { border-left: 3px solid var(--risk-medium); }
-.toast.error   { border-left: 3px solid var(--risk-high); }
-.toast.info    { border-left: 3px solid var(--accent-primary); }
+.toast.success {
+  border-left: 3px solid var(--risk-low);
+}
+
+.toast.warning {
+  border-left: 3px solid var(--risk-medium);
+}
+
+.toast.error {
+  border-left: 3px solid var(--risk-high);
+}
+
+.toast.info {
+  border-left: 3px solid var(--accent-primary);
+}
 
 /* ============================================================================
    Login Page
@@ -774,14 +982,22 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   border-bottom: 1px solid var(--border-subtle);
   gap: 16px;
 }
-.info-row:last-child { border-bottom: none; }
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
 .info-label {
   width: 140px;
   min-width: 140px;
   font-size: 12px;
   color: var(--text-secondary);
 }
-.info-value { font-size: 13px; color: var(--text-primary); }
+
+.info-value {
+  font-size: 13px;
+  color: var(--text-primary);
+}
 
 /* NLP Coding Panel */
 .coding-pair {
@@ -798,8 +1014,15 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   padding: 14px;
 }
 
-.coding-box.match   { border-color: var(--risk-low-border); background-color: var(--risk-low-bg); }
-.coding-box.mismatch { border-color: var(--risk-medium-border); background-color: var(--risk-medium-bg); }
+.coding-box.match {
+  border-color: var(--risk-low-border);
+  background-color: var(--risk-low-bg);
+}
+
+.coding-box.mismatch {
+  border-color: var(--risk-medium-border);
+  background-color: var(--risk-medium-bg);
+}
 
 .coding-box-label {
   font-size: 10px;
@@ -876,9 +1099,21 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   box-shadow: 0 0 0 1px var(--accent-primary);
 }
 
-.audit-content { flex: 1; }
-.audit-meta { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; }
-.audit-text { font-size: 13px; color: var(--text-primary); }
+.audit-content {
+  flex: 1;
+}
+
+.audit-meta {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.audit-text {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
 .audit-note {
   margin-top: 6px;
   padding: 8px 10px;
@@ -899,8 +1134,15 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
 }
 
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================================================
@@ -923,13 +1165,29 @@ input[type="date"].filter-select::-webkit-calendar-picker-indicator {
   cursor: copy;
   transition: color 100ms;
 }
-.copyable:hover { color: var(--accent-secondary); }
+
+.copyable:hover {
+  color: var(--accent-secondary);
+}
 
 /* Scrollbar styling */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background-color: var(--border-default); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background-color: var(--border-strong); }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-default);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-strong);
+}
 
 /* Empty State */
 .empty-state {
