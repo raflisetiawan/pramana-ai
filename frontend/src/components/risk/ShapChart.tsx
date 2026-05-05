@@ -28,11 +28,11 @@ interface ShapChartProps {
 
 const FEATURE_LABELS: Record<string, string> = {
   rasio_terhadap_ina_cbgs: 'Rasio vs INA-CBGs',
-  tagihan_per_hari:        'Tagihan/Hari',
-  pola_historis_rs:        'Pola Historis RS',
-  los:                     'Length of Stay',
-  diagnosa_utama:          'Diagnosa Utama',
-  jumlah_prosedur:         'Jumlah Prosedur',
+  tagihan_per_hari: 'Tagihan/Hari',
+  pola_historis_rs: 'Pola Historis RS',
+  los: 'Length of Stay',
+  diagnosa_utama: 'Diagnosa Utama',
+  jumlah_prosedur: 'Jumlah Prosedur',
 };
 
 /* Custom tooltip */
@@ -62,7 +62,7 @@ function ChartTooltip({ active, payload }: { active?: boolean; payload?: Array<{
 export function ShapChart({ score, factors }: ShapChartProps) {
   // Separate and sort by absolute value
   const positive = factors.filter(f => f.value > 0).sort((a, b) => b.value - a.value);
-  const negative = factors.filter(f => f.value < 0).sort((a, b) => a.value - b.value);
+  // const negative = factors.filter(f => f.value < 0).sort((a, b) => a.value - b.value);
 
   // Build chart data for Recharts: all factors combined, sorted by absolute value
   const allSorted = [...factors].sort((a, b) => Math.abs(b.value) - Math.abs(a.value));
@@ -76,8 +76,8 @@ export function ShapChart({ score, factors }: ShapChartProps) {
   // Risk score bar colour
   const scoreColor =
     score >= 70 ? 'var(--risk-high)' :
-    score >= 40 ? 'var(--risk-medium)' :
-    'var(--risk-low)';
+      score >= 40 ? 'var(--risk-medium)' :
+        'var(--risk-low)';
 
   return (
     <div style={{ padding: '20px' }}>
@@ -117,19 +117,19 @@ export function ShapChart({ score, factors }: ShapChartProps) {
           <BarChart
             data={chartData}
             layout="vertical"
-            margin={{ top: 0, right: 40, left: 0, bottom: 0 }}
+            margin={{ top: 0, right: 50, left: 20, bottom: 0 }}
             barSize={14}
           >
             <XAxis
               type="number"
               hide
-              domain={['dataMin', 'dataMax']}
+              domain={[0, (dataMax: number) => dataMax * 1.25]}
             />
             <YAxis
               type="category"
               dataKey="name"
               tick={{ fontSize: 11, fill: '#8B949E' }}
-              width={120}
+              width={130}
               tickLine={false}
               axisLine={false}
             />
@@ -138,25 +138,32 @@ export function ShapChart({ score, factors }: ShapChartProps) {
               cursor={{ fill: 'var(--bg-overlay)', opacity: 0.5 }}
             />
             <Bar
-              dataKey="value"
+              dataKey="absValue"
               radius={[3, 3, 3, 3]}
               animationBegin={200}
               animationDuration={600}
               animationEasing="ease-out"
-              label={({ x, y, width: w, height: h, value }) => (
-                <text
-                  x={(x as number) + (w as number) + (value as number > 0 ? 6 : -6)}
-                  y={(y as number) + (h as number) / 2}
-                  fill={value as number > 0 ? '#B91C1C' : '#1A7F37'}
-                  fontSize={11}
-                  fontFamily="'IBM Plex Mono', monospace"
-                  fontWeight={500}
-                  dominantBaseline="central"
-                  textAnchor={value as number > 0 ? 'start' : 'end'}
-                >
-                  {value as number > 0 ? '+' : ''}{(value as number).toFixed(2)}
-                </text>
-              )}
+              label={({ x, y, width: w, height: h, index }) => {
+                const originalValue = chartData[index as number].value;
+                const isPositive = originalValue > 0;
+                // All bars now go to the right, so label is safely placed to the right of the bar
+                const labelX = (x as number) + (w as number) + 8;
+                
+                return (
+                  <text
+                    x={labelX}
+                    y={(y as number) + (h as number) / 2}
+                    fill={isPositive ? '#B91C1C' : '#1A7F37'}
+                    fontSize={11}
+                    fontFamily="'IBM Plex Mono', monospace"
+                    fontWeight={500}
+                    dominantBaseline="central"
+                    textAnchor="start"
+                  >
+                    {isPositive ? '+' : ''}{originalValue.toFixed(2)}
+                  </text>
+                );
+              }}
             >
               {chartData.map((entry, index) => (
                 <Cell
