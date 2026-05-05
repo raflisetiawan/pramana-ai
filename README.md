@@ -3,6 +3,7 @@
 > **Pramana** (प्रमाण) — "alat pembuktian", "sumber pengetahuan yang benar"
 
 Sistem AI untuk verifikasi klaim BPJS Kesehatan yang membantu verifikator dengan:
+
 - 🧠 **NLP Engine** — Ekstraksi koding ICD-10/ICD-9 otomatis dari resume medis
 - 📊 **ML Engine** — Risk scoring per berkas klaim (0–100) dengan explainability (SHAP)
 - 🔗 **Mock VClaim** — Simulasi lengkap VClaim 2.0 BPJS untuk development
@@ -13,6 +14,7 @@ Sistem AI untuk verifikasi klaim BPJS Kesehatan yang membantu verifikator dengan
 ## Quick Start
 
 ### Prerequisites
+
 - Python >= 3.11
 - Docker >= 24.0
 - Node.js >= 20.0
@@ -60,6 +62,25 @@ cd services/api-gateway && uvicorn app.main:app --reload --port 8000
 | `make health` | Cek health semua service |
 | `make logs` | Lihat logs semua service |
 | `make help` | Tampilkan semua command |
+
+---
+
+## Tampilan Antarmuka
+
+Menampilkan antarmuka *Clinical Command Center* Pramana AI yang dirancang khusus untuk memfasilitasi kerja verifikator BPJS.
+
+<p align="center">
+  <img src="assets/img/login.png" width="99%" alt="Login" />
+</p>
+<p align="center">
+  <img src="assets/img/dashboard.png" width="99%" alt="Triage Dashboard" />
+</p>
+<p align="center">
+  <img src="assets/img/detail-claim.png" width="99%" alt="Detail Klaim & Analisis AI" />
+</p>
+<p align="center">
+  <img src="assets/img/analytics.png" width="99%" alt="Analytics & Pelaporan" />
+</p>
 
 ---
 
