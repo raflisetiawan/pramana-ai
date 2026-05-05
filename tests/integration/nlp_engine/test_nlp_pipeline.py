@@ -14,7 +14,7 @@ import time
 from pathlib import Path
 import sys
 
-NLP_ENGINE_PATH = Path(__file__).resolve().parents[2] / "services" / "nlp-engine"
+NLP_ENGINE_PATH = Path(__file__).resolve().parents[3] / "services" / "nlp-engine"
 sys.path.insert(0, str(NLP_ENGINE_PATH))
 
 import pytest  # noqa: E402
@@ -25,7 +25,7 @@ from app.pipeline.confidence import NLP_CONFIDENCE_THRESHOLD  # noqa: E402
 from app.pipeline.icd_mapper import ICDMapper  # noqa: E402
 from app.pipeline.ner import RuleBasedMedicalNER  # noqa: E402
 
-FIXTURES_PATH = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "resume_medis_sintetis.json"
+FIXTURES_PATH = Path(__file__).resolve().parents[3] / "tests" / "fixtures" / "resume_medis_sintetis.json"
 
 
 # ---------------------------------------------------------------------------

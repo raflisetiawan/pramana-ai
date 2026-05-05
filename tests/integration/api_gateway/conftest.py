@@ -17,7 +17,7 @@ from sqlalchemy import Float, String, Text, text
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 # Ensure api-gateway app is importable
-_gateway_dir = os.path.join(os.path.dirname(__file__), "..", "..", "services", "api-gateway")
+_gateway_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..", "services", "api-gateway")
 sys.path.insert(0, os.path.abspath(_gateway_dir))
 
 from app.database import Base, get_db  # noqa: E402

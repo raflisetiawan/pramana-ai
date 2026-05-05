@@ -12,6 +12,12 @@ from datetime import datetime
 
 import fakeredis
 
+import os
+import sys
+
+_mock_vclaim_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "services", "mock-vclaim"))
+sys.path.insert(0, _mock_vclaim_dir)
+
 from app.auth.signature import generate_signature
 from app.config import mock_settings
 from app.main import app

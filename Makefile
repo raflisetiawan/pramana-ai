@@ -76,13 +76,20 @@ seed: ## Jalankan seed data
 # --- Testing Commands ---
 
 test: ## Jalankan semua unit tests
-	pytest tests/ -v --tb=short
+	pytest tests/unit/test_mock_vclaim tests/integration/mock_vclaim/test_mock_vclaim_flow.py -v --tb=short
+	pytest tests/unit/test_nlp_engine tests/integration/nlp_engine/test_nlp_pipeline.py -v --tb=short
+	pytest tests/unit/test_ml_engine -v --tb=short
+	pytest tests/integration/api_gateway/test_e2e_gateway.py tests/integration/api_gateway/test_three_scenarios.py -v --tb=short
 
 test-unit: ## Jalankan hanya unit tests
-	pytest tests/unit/ -v --tb=short
+	pytest tests/unit/test_mock_vclaim -v --tb=short
+	pytest tests/unit/test_nlp_engine -v --tb=short
+	pytest tests/unit/test_ml_engine -v --tb=short
 
 test-integration: ## Jalankan hanya integration tests
-	pytest tests/integration/ -v --tb=short
+	pytest tests/integration/mock_vclaim/test_mock_vclaim_flow.py -v --tb=short
+	pytest tests/integration/nlp_engine/test_nlp_pipeline.py -v --tb=short
+	pytest tests/integration/api_gateway/test_e2e_gateway.py tests/integration/api_gateway/test_three_scenarios.py -v --tb=short
 
 test-coverage: ## Jalankan tests dengan coverage report
 	pytest tests/ -v --tb=short --cov=services --cov-report=html --cov-report=term-missing

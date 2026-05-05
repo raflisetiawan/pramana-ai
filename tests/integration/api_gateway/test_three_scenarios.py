@@ -14,7 +14,7 @@ Each scenario validates:
 """
 import pytest
 
-from tests.integration.conftest import (
+from tests.integration.api_gateway.conftest import (
     CLAIM_HIGH_ID,
     CLAIM_LOW_ID,
     CLAIM_MED_ID,

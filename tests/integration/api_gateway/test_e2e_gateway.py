@@ -21,7 +21,7 @@ import uuid
 import pytest
 import pytest_asyncio
 
-from tests.integration.conftest import (
+from tests.integration.api_gateway.conftest import (
     ADMIN_RS_ID,
     CLAIM_HIGH_ID,
     CLAIM_LOW_ID,
